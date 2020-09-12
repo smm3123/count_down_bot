@@ -27,7 +27,7 @@ async def on_message(message):
     ]
     if message.content.lower() in countdown_messages:
         await message.channel.send("3\n2\n1\nGo", tts=True)
-    elif message.conten.lower() == "!helicopter":
+    elif message.content.lower() == "!helicopter":
         tts_msg = "Can you guys hear that helicopter?\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
         await message.channel.send(tts_msg, tts=True)
 
