@@ -11,8 +11,15 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 client = discord.Client()
 
+@client.event
+async def on_ready():
+    print(str(client.user) + " has connected to Discord.")
 
-async def do_countdown_message(message):
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
     countdown_messages = [
         "!countdown",
         "!cd",
@@ -20,25 +27,8 @@ async def do_countdown_message(message):
     ]
     if message.content.lower() in countdown_messages:
         await message.channel.send("3\n2\n1\nGo", tts=True)
-
-
-async def do_helicopter_message(message):
-    if message.content.lower() == "!helicopter":
+    elif message.conten.lower() == "!helicopter":
         tts_msg = "Can you guys hear that helicopter?\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
         await message.channel.send(tts_msg, tts=True)
-
-
-@client.event
-async def on_ready():
-    print(str(client.user) + " has connected to Discord.")
-
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    do_countdown_message(message)
-    do_helicopter_message(message)
 
 client.run(TOKEN)
