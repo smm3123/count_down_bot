@@ -20,12 +20,15 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    activation_messages = [
+    countdown_messages = [
         "!countdown",
         "!cd",
         "!count"
     ]
-    if message.content in activation_messages:
+    if message.content in countdown_messages:
         await message.channel.send("3\n2\n1\nGo", tts=True)
+    elif message.content == "!helicopter":
+        tts_msg = "Can you guys hear that helicopter?\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+        await message.channel.send(tts_msg)
 
 client.run(TOKEN)
