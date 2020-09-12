@@ -29,6 +29,6 @@ async def on_message(message):
         await message.channel.send("3\n2\n1\nGo", tts=True)
     elif message.content == "!helicopter":
         tts_msg = "Can you guys hear that helicopter?\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-        await message.channel.send(tts_msg)
+        await message.channel.send(tts_msg, tts=True)
 
 client.run(TOKEN)
