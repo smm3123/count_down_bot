@@ -13,7 +13,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print(str(client.user) + " has connected to Discord!")
+    print(str(client.user) + " has connected to Discord.")
 
 @client.event
 async def on_message(message):
